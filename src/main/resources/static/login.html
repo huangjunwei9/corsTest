@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Page Index</title>
+</head>
+<body>
+<h2>前台系统</h2>
+<p id="info"></p>
+</body>
+<script src="webjars/jquery/3.2.1/jquery.js"></script>
+<script>
+    $.ajax({
+        url: 'http://180.201.177.67:8080/viewwork2019/user/login',
+        data:{
+            username:'test1',
+            password:'test1'
+        },
+        type: "POST",
+        dataType: "json",
+        xhrFields: {
+            withCredentials: true //允许跨域认证
+        },
+        success: function (data) {
+            $("#info").html("跨域登陆成功:"+data);
+        },
+        error: function (data) {
+            $("#info").html("跨域登陆失败!!");
+        }
+    })
+</script>
+</html>
